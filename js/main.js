@@ -28,6 +28,45 @@
     /* else if (bodyId != 'index' ) { 
 
     } */
+
+
+/**header sticky */
+
+
+   let  bodyId = document.body.id;
+  if (bodyId == 'index' ) { 
+   let selectHeader = document.getElementById('header');
+  
+     let headerOffset = selectHeader.offsetTop;
+     //let nextElement = selectHeader.nextElementSibling
+     //console.log('offset : ' + headerOffset);
+     if (selectHeader) {
+      //console.log(headerOffset - window.scrollY);
+     window.addEventListener('scroll', function() {
+        //console.log('offset2 : ' + (headerOffset - window.scrollY));
+        console.log(headerOffset - window.scrollY);
+        if ((headerOffset - window.scrollY) < 0) {
+          //console.log("sticky");
+            selectHeader.classList.add('sticky');
+            //nextElement.classList.add('scrolled-offset')
+          } else {
+            //console.log("not sticky");
+            selectHeader.classList.remove('sticky');
+            //nextElement.classList.remove('scrolled-offset')
+          }
+     }
+    );
+  }
+    } 
+
+
+
+/**fin header sticky */
+
+
+
+
+
   /**
    * icon slider fixed tourne on scroll
    */
@@ -102,7 +141,7 @@
       const titreSlider = document.querySelectorAll('.title-slider span');
       window.addEventListener('load' , () =>{
         const tl = gsap.timeline({paused:true });
-        console.log(tl);
+        //console.log(tl);
         tl.staggerFrom(titreSlider,1,{top:-50,opacity:0,ease:"power2.out"},0.3)
         tl.play();
       })
@@ -157,8 +196,8 @@
     // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
       function isElementInViewport(el) {
       const rect = el.getBoundingClientRect();
-      console.log(rect.top);
-      console.log(rect.botom);
+      /* console.log(rect.top);
+      console.log(rect.botom); */
       return (
         
         rect.top >= 0 &&
@@ -198,12 +237,12 @@
             //arrowNext.style.cursor = none;
           } 
           const sign = (this.classList.contains("arrow__prev")) ? "" : "-";
-          console.log(counter);
+         // console.log(counter);
           
          
           
-      console.log(timelineWidth);
-          console.log(containerWidth);
+      /* console.log(timelineWidth);
+          console.log(containerWidth); */
           if (counter === 0 ) {
             tl.style.transform = `translateX(-${scrolling}px)`;
 
@@ -212,22 +251,22 @@
             // add more browser prefixes if needed here
       
              timelineWidth = timelineWidth - scrolling ;
-            console.log("width apres 1 :");
-            console.log(timelineWidth);
+            /* console.log("width apres 1 :");
+            console.log(timelineWidth); */
           } else  {
             //debug
-            console.log('boucle');
+            //console.log('boucle');
             const tlStyle = getComputedStyle(tl);
             //console.log(tlStyle);
             // add more browser prefixes if needed here
             const tlTransform = tlStyle.getPropertyValue("-webkit-transform") || tlStyle.getPropertyValue("transform");
             const values = parseInt(tlTransform.split(",")[4]) + parseInt(`${sign}${scrolling}`);
-            console.log(tlTransform.split(",")[4]);
+            //console.log(tlTransform.split(",")[4]);
             tl.style.transform = `translateX(${values}px)`;
           
             timelineWidth = timelineWidth - scrolling ;
-            console.log("width apres :");
-            console.log(timelineWidth);
+            /* console.log("width apres :");
+            console.log(timelineWidth); */
           }
          
              setTimeout(() => {

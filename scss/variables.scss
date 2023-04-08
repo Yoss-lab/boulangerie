@@ -4,7 +4,13 @@
 $bg-body:  #f4f1ea;
 $color-body: #000;
 $font-body : 'Nunito', sans-serif;
-$color-chevron: #a47d5e;
+
 $general-color: #a47d5e;
 $second-color:  #493e35;
+
+$bg-header: #000;
+$color-header:#fff;
+$color-header-hover: $general-color;
+$color-header-hover-not-sticky: $second-color;
+$color-chevron: #a47d5e;
 $bg-hashtag :   #493e35;
