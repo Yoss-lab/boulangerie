@@ -205,6 +205,18 @@ body {
     z-index: 999;
     &:not(.sticky){
         background:rgba($bg-header,.3); 
+        nav{
+            ul{
+                li{
+                    a{
+                        &:hover , &:focus , &.active{
+                            color: $color-header-hover-not-sticky;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
     }
     .slogan-header{
         /* font-size: 42px;
@@ -280,6 +292,8 @@ body {
     z-index: 999;
 }
 button.navbar-toggler{
+    border: none !important;
+    box-shadow: none !important;
     .navbar-toggler-icon {
         background-image: url("../img/menu-blanc.svg") !important;
     }
@@ -305,7 +319,7 @@ button.navbar-toggler{
             a{
                 color: $color-header;
                 &:hover , &:focus , &.active{
-                    color: $color-header-hover-not-sticky;
+                    color: $color-header-hover;
                 }
 
             }
